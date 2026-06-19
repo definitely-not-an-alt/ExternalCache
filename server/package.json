@@ -1,0 +1,14 @@
+{
+  "name": "external-cache",
+  "version": "1.0.0",
+  "description": "Caches external media from chat messages for offline access",
+  "main": "index.mjs",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/definitely-not-an-alt/ExternalCache.git"
+  },
+  "homepage": "https://github.com/definitely-not-an-alt/ExternalCache",
+  "author": "definitely-not-an-alt",
+  "license": "MIT"
+}

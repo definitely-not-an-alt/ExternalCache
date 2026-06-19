@@ -1,0 +1,92 @@
+<div class="externalcache_settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>
+                <span>ExternalCache</span>
+            </b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <p class="externalcache_description">
+                Caches external media from chats for offline access. Requires the server plugin.
+            </p>
+
+            <div style="display: flex; align-items: center; gap: 12px; margin: 4px 0;">
+                <label class="alike_label" for="externalcache_enabled" style="display: flex; align-items: center; gap: 4px;">
+                    <span class="alike_switch">
+                        <input type="checkbox" id="externalcache_enabled" />
+                        <span class="alike_switch_container"></span>
+                    </span>
+                    <span class="externalcache_label">Enable</span>
+                </label>
+                <div style="display: flex; align-items: center; gap: 6px; margin-left: auto;">
+                    <label for="externalcache_max_size_mb" style="font-size: 0.85em; color: var(--text-color-secondary, #aaa); white-space: nowrap;">Max size (MB):</label>
+                    <input type="number" id="externalcache_max_size_mb" min="0" max="999999" value="0" style="width: 60px; padding: 3px 5px; border-radius: 4px; border: 1px solid var(--border-color, #555); background: var(--input-bg-color, #1b1b1b); color: var(--text-color-primary, #fff); font-size: 0.85em;" />
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin: 4px 0;">
+                <div style="visibility: hidden;">
+                    <label class="alike_label" style="display: flex; align-items: center; gap: 4px;">
+                        <span class="alike_switch">
+                            <input type="checkbox" disabled />
+                            <span class="alike_switch_container"></span>
+                        </span>
+                        <span class="externalcache_label">Enable</span>
+                    </label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; margin-left: auto;">
+                    <label for="externalcache_ttl_days" style="font-size: 0.85em; color: var(--text-color-secondary, #aaa); white-space: nowrap;">TTL (days):</label>
+                    <input type="number" id="externalcache_ttl_days" min="1" max="3650" value="30" style="width: 50px; padding: 3px 5px; border-radius: 4px; border: 1px solid var(--border-color, #555); background: var(--input-bg-color, #1b1b1b); color: var(--text-color-primary, #fff); font-size: 0.85em;" />
+                    <button id="externalcache_expire" class="menu_button" style="white-space: nowrap; padding: 4px 10px; font-size: 0.85em;">Expire</button>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin: 4px 0;">
+                <div style="visibility: hidden;">
+                    <label class="alike_label" style="display: flex; align-items: center; gap: 4px;">
+                        <span class="alike_switch">
+                            <input type="checkbox" disabled />
+                            <span class="alike_switch_container"></span>
+                        </span>
+                        <span class="externalcache_label">Enable</span>
+                    </label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px; margin-left: auto;">
+                    <label for="externalcache_proxy_url" style="font-size: 0.85em; color: var(--text-color-secondary, #aaa); white-space: nowrap;">Proxy URL:</label>
+                    <input type="text" id="externalcache_proxy_url" placeholder="Leave empty to use env vars" style="width: 200px; padding: 3px 5px; border-radius: 4px; border: 1px solid var(--border-color, #555); background: var(--input-bg-color, #1b1b1b); color: var(--text-color-primary, #fff); font-size: 0.85em;" />
+                </div>
+            </div>
+            <p class="externalcache_hint">Caches external media for offline access. Max size evicts oldest files. Expire purges files not accessed within TTL. Proxy routes requests through a proxy (plugin setting overrides env vars).</p>
+
+            <hr style="margin: 12px 0; border: none; border-top: 1px solid var(--border-color, #333);">
+
+            <h4 style="margin: 0 0 4px 0; font-size: 0.9em; color: var(--text-color-primary, #fff);">Cache Manager</h4>
+
+            <div class="externalcache_toolbar">
+                <span class="externalcache_hint externalcache_inline">
+                    Cached files: <span id="externalcache_cache_count">0</span>
+                </span>
+                <div class="externalcache_button_row">
+                    <button id="externalcache_refresh_cache" class="menu_button">Refresh</button>
+                    <button id="externalcache_clear_all" class="menu_button">Clear All</button>
+                </div>
+            </div>
+
+            <div class="externalcache_cache_table_wrapper">
+                <table class="externalcache_cache_table">
+                    <thead>
+                        <tr>
+                            <th>URL</th>
+                            <th class="externalcache_sortable" data-sort="size">Size <i class="fa-solid fa-sort"></i></th>
+                            <th class="externalcache_sortable" data-sort="cached">Cached <i class="fa-solid fa-sort"></i></th>
+                            <th class="externalcache_sortable" data-sort="lastUsed">Last Used <i class="fa-solid fa-sort"></i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="externalcache_cache_list">
+                        <tr><td colspan="5" style="text-align:center;color:#888;">Connect to server to view cache</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
