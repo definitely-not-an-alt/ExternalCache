@@ -79,7 +79,7 @@ async function loadCacheList() {
     listEl.html('<tr><td colspan="5" style="text-align:center;color:#888;">Loading...</td></tr>');
 
     try {
-        const response = await fetch('/api/plugins/external-cache/list', {
+        const response = await fetch('/api/plugins/externalcache/list', {
             headers: context.getRequestHeaders(),
         });
 
@@ -156,7 +156,7 @@ function renderCacheList() {
  */
 async function deleteEntry(filename) {
     try {
-        const response = await fetch(`/api/plugins/external-cache/${encodeURIComponent(filename)}`, {
+        const response = await fetch(`/api/plugins/externalcache/${encodeURIComponent(filename)}`, {
             method: 'DELETE',
             headers: context.getRequestHeaders(),
         });
@@ -203,7 +203,7 @@ function onProxyChange() {
 async function syncServerConfig() {
     if (!settings || !context) return;
     try {
-        const res = await fetch('/api/plugins/external-cache/config', {
+        const res = await fetch('/api/plugins/externalcache/config', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -228,7 +228,7 @@ async function expireOldCache() {
     if (!confirm(`Remove cached files not accessed in the last ${days} days?`)) return;
 
     try {
-        const response = await fetch(`/api/plugins/external-cache/expire?days=${days}`, {
+        const response = await fetch(`/api/plugins/externalcache/expire?days=${days}`, {
             method: 'DELETE',
             headers: context.getRequestHeaders(),
         });
@@ -269,7 +269,7 @@ async function clearAllCache() {
     if (!confirm('Clear all cached media files?')) return;
 
     try {
-        const response = await fetch('/api/plugins/external-cache/', {
+        const response = await fetch('/api/plugins/externalcache/', {
             method: 'DELETE',
             headers: context.getRequestHeaders(),
         });

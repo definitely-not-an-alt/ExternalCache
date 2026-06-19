@@ -19,7 +19,7 @@ import { SocksProxyAgent } from 'socks-proxy-agent';
 // ============================================================================
 
 export const info = {
-    id: 'external-cache',
+    id: 'externalcache',
     name: 'ExternalCache',
     description: 'Caches external media from chat messages for offline access and privacy.',
 };

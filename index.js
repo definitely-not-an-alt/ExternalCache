@@ -43,7 +43,7 @@ export async function onActivate() {
 
         try {
             const settingsHtml = await context.renderExtensionTemplateAsync(
-                'third-party/externalcache',
+                'third-party/ExternalCache',
                 'settings',
             );
             $('#extensions_settings2').append(settingsHtml);
@@ -112,7 +112,7 @@ function isExternalUrl(url) {
  */
 function rewriteUrl(url) {
     if (isExternalUrl(url)) {
-        return `/api/plugins/external-cache/cache?url=${encodeURIComponent(url)}`;
+        return `/api/plugins/externalcache/cache?url=${encodeURIComponent(url)}`;
     }
     return url;
 }
@@ -195,7 +195,7 @@ function rewriteExternalMedia(html) {
 async function expireOldCacheOnInit() {
     const ttlDays = extensionSettings?.['externalcache']?.cache_ttl_days ?? 30;
     try {
-        const response = await fetch(`/api/plugins/external-cache/expire?days=${ttlDays}`, {
+        const response = await fetch(`/api/plugins/externalcache/expire?days=${ttlDays}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${SillyTavern.getContext().user.token}`,

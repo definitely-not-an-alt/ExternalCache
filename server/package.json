@@ -1,5 +1,5 @@
 {
-  "name": "external-cache",
+  "name": "externalcache",
   "version": "1.0.0",
   "description": "Caches external media from chat messages for offline access",
   "main": "index.mjs",
